@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>compare CheckMacValue method testing result: true
-https://payment-stage.ecPay.com.tw/Cashier/AioCheckOut/V5
-aioCheckOutOneTime: <form id="allPayAPIForm" action="https://payment-stage.ecPay.com.tw/Cashier/AioCheckOut/V5" method="post"><input type="hidden" name="ChooseSubPayment" value=""><input type="hidden" name="Redeem" value=""><input type="hidden" name="MerchantID" value="2000132"><input type="hidden" name="ClientBackURL" value=""><input type="hidden" name="CustomField4" value=""><input type="hidden" name="CustomField3" value=""><input type="hidden" name="CustomField2" value=""><input type="hidden" name="MerchantMemberID" value=""><input type="hidden" name="TotalAmount" value="50"><input type="hidden" name="OrderResultURL" value=""><input type="hidden" name="CustomField1" value=""><input type="hidden" name="UnionPay" value=""><input type="hidden" name="InvoiceMark" value="N"><input type="hidden" name="IgnorePayment" value=""><input type="hidden" name="PaymentType" value="aio"><input type="hidden" name="CheckMacValue" value="AA71F9FF1726C040D0AF6B7D04FCE8C6B6B016EFA97D1107B4C8773E317A6788"><input type="hidden" name="NeedExtraPaidInfo" value="N"><input type="hidden" name="ItemURL" value=""><input type="hidden" name="BidingCard" value=""><input type="hidden" name="DeviceSource" value=""><input type="hidden" name="EncryptType" value="1"><input type="hidden" name="TradeDesc" value="test Description"><input type="hidden" name="ChoosePayment" value="Credit"><input type="hidden" name="StoreID" value=""><input type="hidden" name="Remark" value=""><input type="hidden" name="Language" value=""><input type="hidden" name="PlatformID" value=""><input type="hidden" name="ReturnURL" value="http://211.23.128.214:5000"><input type="hidden" name="ItemName" value="TestItem"><input type="hidden" name="MerchantTradeNo" value="testCompany888888"><input type="hidden" name="MerchantTradeDate" value="2017/01/01 08:05:23"><script language="JavaScript">allPayAPIForm.submit()</script></form>
+<body>
 
+<form action="http://localhost:8081/ECPAY/test/TestPayServlet.do" method="POST">
+	
+	<input type="hidden" name="action" value="pay"/>
+	<input type="submit" value="送出"/>
+</form>
 </body>
 </html>

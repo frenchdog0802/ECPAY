@@ -41,10 +41,15 @@ public class ExampleAllInOne {
 //		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
 //		System.out.println("aioCheckOutBARCODE: " + genAioCheckOutBARCODE());
 //		System.out.println("aioCheckOutDevide: " + genAioCheckOutDevide()); //分期
-		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());//紅利折抵
+		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());//紅利折抵(可以一次付清)
 //		System.out.println("aioCheckOutPeriod: " + genAioCheckOutPeriod()); //定期定額
 //		System.out.println("aioCheckOutWebATM: " + genAioCheckOutWebATM());
 	}
+	
+	public ExampleAllInOne() {
+		all = new AllInOne("");
+	};
+	
 	private static void initial(){
 		all = new AllInOne("");
 	}
@@ -58,6 +63,7 @@ public class ExampleAllInOne {
 	}
 	
 	public static String postCreateServerOrder(){
+//		 ApplePay 信用卡授權作業物件
 		CreateServerOrderObj obj = new CreateServerOrderObj();
 		obj.setMerchantTradeNo("sdfkjh2kli3hlih");
 		obj.setMerchantTradeDate("2017/05/12 10:23:46");
