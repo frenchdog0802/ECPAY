@@ -36,12 +36,12 @@ public class ExampleAllInOne {
 //		System.out.println("queryTrade: " + postQueryTrade());
 //		System.out.println("tradeNoAio: " + postTradeNoAio());
 //		System.out.println("fundingReconDetail: " + postFundingReconDetail());
-		System.out.println("aioCheckOutALL: " + genAioCheckOutALL());
-//		System.out.println("aioCheckOutATM: " + genAioCheckOutATM());
+//		System.out.println("aioCheckOutALL: " + genAioCheckOutALL());
+		//System.out.println("aioCheckOutATM: " + genAioCheckOutATM());
 //		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
 //		System.out.println("aioCheckOutBARCODE: " + genAioCheckOutBARCODE());
 //		System.out.println("aioCheckOutDevide: " + genAioCheckOutDevide()); //分期
-//		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());//紅利折抵
+		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());//紅利折抵
 //		System.out.println("aioCheckOutPeriod: " + genAioCheckOutPeriod()); //定期定額
 //		System.out.println("aioCheckOutWebATM: " + genAioCheckOutWebATM());
 	}
@@ -54,6 +54,7 @@ public class ExampleAllInOne {
 		dict.put("MerchantID", "2000132");
 		dict.put("CheckMacValue", "50BE3989953C1734E32DD18EB23698241E035F9CBCAC74371CCCF09E0E15BD61");
 		return all.compareCheckMacValue(dict);
+//		檢查Hashtable中的檢查碼是否正確(確保資料未被竄改)
 	}
 	
 	public static String postCreateServerOrder(){
@@ -76,6 +77,7 @@ public class ExampleAllInOne {
 	}
 	
 	public static String postDoAction(){
+//		信用卡關帳/退刷/取消/放棄物件
 		DoActionObj obj = new DoActionObj();
 		obj.setMerchantTradeNo("b0fac40057364c0894b");
 		obj.setTotalAmount("100");
@@ -85,6 +87,7 @@ public class ExampleAllInOne {
 	}
 	
 	public static String postFundingReconDetail(){
+//		下載信用卡撥款對帳資料檔物件
 		FundingReconDetailObj obj = new FundingReconDetailObj();
 		obj.setPayDateType("close");
 		obj.setStartDate("2017-03-03");
@@ -93,6 +96,7 @@ public class ExampleAllInOne {
 	}
 	
 	public static String postCapture(){
+//		合作特店申請撥款物件
 		CaptureObj obj = new CaptureObj();
 		obj.setMerchantTradeNo("testCompany0003");
 		obj.setCaptureAMT("100");
@@ -100,6 +104,7 @@ public class ExampleAllInOne {
 	}
 	
 	public static String postQueryTrade(){
+//		查詢信用卡單筆明細記錄物件
 		QueryTradeObj obj = new QueryTradeObj();
 		obj.setCreditRefundId("10123456");
 		obj.setCreditAmount("100");
@@ -108,12 +113,14 @@ public class ExampleAllInOne {
 	}
 	
 	public static String postQueryTradeInfo(){
+//		查詢訂單物件
 		QueryTradeInfoObj obj = new QueryTradeInfoObj();
 		obj.setMerchantTradeNo("0c3075e7499743e58ef");
 		return all.queryTradeInfo(obj);
 	}
 	
 	public static String postTradeNoAio(){
+//		下載合作特店對帳媒體檔物件
 		TradeNoAioObj obj = new TradeNoAioObj();
 		obj.setDateType("6");
 		obj.setBeginDate("2017-03-03");
@@ -123,12 +130,14 @@ public class ExampleAllInOne {
 	}
 	
 	public static String postQueryCreditCardPeriodInfo(){
+//		信用卡定期定額訂單查詢物件
 		QueryCreditCardPeriodInfoObj obj = new QueryCreditCardPeriodInfoObj();
 		obj.setMerchantTradeNo("74823H75879R166472");
 		return all.queryCreditCardPeriodInfo(obj);
 	}
 	
 	public static String genAioCheckOutWebATM(){
+//		產生網路ATM訂單物件
 		AioCheckOutWebATM obj = new AioCheckOutWebATM();
 		obj.setMerchantTradeNo("testCompany444444");
 		obj.setMerchantTradeDate("2017/01/01 08:05:08");
@@ -142,8 +151,9 @@ public class ExampleAllInOne {
 	}
 	
 	public static String genAioCheckOutALL(){
+//		產生訂單物件(不指定付款方式，由綠界顯示)
 		AioCheckOutALL obj = new AioCheckOutALL();
-		obj.setMerchantTradeNo("testCompany563333");
+		obj.setMerchantTradeNo("testCompany563332");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
@@ -155,8 +165,9 @@ public class ExampleAllInOne {
 	}
 	
 	public static String genAioCheckOutATM(){
+//		產生ATM訂單物件
 		AioCheckOutATM obj = new AioCheckOutATM();
-		obj.setMerchantTradeNo("testCompany555555");
+		obj.setMerchantTradeNo("testCompany555556");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
@@ -169,6 +180,7 @@ public class ExampleAllInOne {
 	}
 	
 	public static String genAioCheckOutBARCODE(){
+//		產生超商條碼繳費訂單物件
 		AioCheckOutBARCODE obj = new AioCheckOutBARCODE();
 		obj.setMerchantTradeNo("testCompany77775");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
@@ -183,6 +195,8 @@ public class ExampleAllInOne {
 	}
 	
 	public static String genAioCheckOutCVS(){
+//		產生CVS超商代碼繳費訂單物件
+//		開立發票物件
 		AioCheckOutCVS obj = new AioCheckOutCVS();
 		InvoiceObj invoice = new InvoiceObj();
 		UUID uid = UUID.randomUUID();
@@ -218,6 +232,7 @@ public class ExampleAllInOne {
 	}
 	
 	public static String genAioCheckOutDevide(){
+//		產生信用卡分期付款訂單物件
 		AioCheckOutDevide obj = new AioCheckOutDevide();
 		obj.setMerchantTradeNo("testCompany11111");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
@@ -233,20 +248,30 @@ public class ExampleAllInOne {
 	}
 	
 	public static String genAioCheckOutOneTime(){
+//		產生信用卡一次付清訂單物件
 		AioCheckOutOneTime obj = new AioCheckOutOneTime();
-		obj.setMerchantTradeNo("testCompany88888");
+		//訂單編號
+		obj.setMerchantTradeNo("testCompany888888");
+//		設定MerchantTradeDate 合作特店交易時間
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+//		設定TotalAmount 交易金額
 		obj.setTotalAmount("50");
+//		設定TradeDesc 交易描述
 		obj.setTradeDesc("test Description");
+//		設定ItemName 商品名稱
 		obj.setItemName("TestItem");
+//		設定ReturnURL 付款完成通知回傳網址
 		obj.setReturnURL("http://211.23.128.214:5000");
+//		設定NeedExtraPaidInfo 是否需要額外的付款資訊 
 		obj.setNeedExtraPaidInfo("N");
-		obj.setRedeem("Y");
+		 //setRedeem是否使用紅利折抵
+		obj.setRedeem("Y");   
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
 	
 	public static String genAioCheckOutPeriod(){
+//		產生信用卡定期定額訂單物件
 		AioCheckOutPeriod obj = new AioCheckOutPeriod();
 		obj.setMerchantTradeNo("testCompany99999");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
