@@ -3,7 +3,7 @@
 技術文件 https://www.ecpay.com.tw/Content/files/gw_p110.pdf
 
 
-#名詞解釋
+# 名詞解釋
 ### 代收(Collect / payin)
 End User還錢，以第三方支付的角度收款進來
 ### 代付(Payout/Settlement)
